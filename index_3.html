@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Cardell Fragrances — Redesign Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#141210; --ink-2:#1d1a17; --ivory:#f6f1e9; --paper:#efe7da;
+  --muted:#8c8277; --gold:#b8955a; --gold-soft:#d9c29a; --line:rgba(184,149,90,.28);
+  --serif:'Cormorant Garamond', Georgia, serif; --sans:'Jost', system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.serif{font-family:var(--serif)}
+.btn{display:inline-block;font-size:11px;letter-spacing:.28em;text-transform:uppercase;padding:16px 38px;border:1px solid currentColor;transition:all .35s ease;cursor:pointer;background:none;font-family:var(--sans)}
+.btn-gold{border-color:var(--gold);color:var(--ink);background:var(--gold)}
+.btn-gold:hover{background:transparent;color:var(--gold-soft)}
+.btn-line:hover{background:var(--ink);color:var(--ivory)}
+
+/* announcement */
+.announce{background:var(--ink);color:var(--gold-soft);text-align:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;padding:10px 16px}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(246,241,233,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:84px}
+.nav-links{display:flex;gap:28px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+.nav-tools{white-space:nowrap}
+@media (max-width:1180px) and (min-width:721px){.nav-links{gap:18px;font-size:10px;letter-spacing:.14em}.logo .name{font-size:24px}}
+.nav-links a{position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.logo{text-align:center;line-height:1}
+.logo .name{font-family:var(--serif);font-size:30px;font-weight:400;letter-spacing:.14em;text-transform:uppercase}
+.logo .sub{display:block;font-size:9px;letter-spacing:.6em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.nav-tools{display:flex;justify-content:flex-end;gap:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.cart-count{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--ink);color:var(--ivory);font-size:10px;letter-spacing:0;margin-left:6px}
+.menu-btn{display:none;background:none;border:0;font-size:12px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--sans)}
+
+/* hero */
+.hero{background:radial-gradient(ellipse at 70% 40%, #2b241c 0%, var(--ink) 62%);color:var(--ivory);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;min-height:calc(100vh - 120px);padding:80px 0;gap:40px}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(64px,11vw,148px);line-height:.9;letter-spacing:.04em;margin:22px 0 26px}
+.hero h1 em{color:var(--gold);font-style:normal}
+.acronym{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--serif);font-style:italic;font-size:clamp(18px,2.2vw,24px);color:var(--gold-soft);margin-bottom:22px}
+.acronym b{font-style:normal;font-weight:500;color:var(--ivory)}
+.hero p.lede{max-width:440px;color:#c9bfb1;font-size:15px;margin-bottom:40px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.hero .btn-line{color:var(--ivory)}
+.hero .btn-line:hover{background:var(--ivory);color:var(--ink)}
+.hero-visual{position:relative;height:560px;display:flex;align-items:flex-end;justify-content:center}
+.halo{position:absolute;width:420px;height:420px;border-radius:50%;border:1px solid var(--line);top:50%;left:50%;transform:translate(-50%,-55%)}
+.halo.two{width:520px;height:520px;opacity:.5}
+
+/* bottle illustration */
+.bottle{--liq:#c9a46a;position:relative;width:150px;height:260px;margin:0 auto}
+.bottle .cap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:62px;height:58px;background:linear-gradient(90deg,#0d0c0b,#3a332b 45%,#0d0c0b);border-radius:3px}
+.bottle .neck{position:absolute;top:56px;left:50%;transform:translateX(-50%);width:34px;height:16px;background:linear-gradient(90deg,#8a7656,#e6d3ab,#8a7656)}
+.bottle .glass{position:absolute;top:70px;left:0;right:0;bottom:0;border-radius:6px;background:linear-gradient(100deg,rgba(255,255,255,.35),rgba(255,255,255,.06) 30%,rgba(255,255,255,.02) 70%,rgba(255,255,255,.22));border:1px solid rgba(255,255,255,.35);overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.45)}
+.bottle .liquid{position:absolute;left:6px;right:6px;bottom:6px;top:22px;border-radius:3px;background:linear-gradient(180deg,color-mix(in srgb,var(--liq) 70%,#fff) 0%,var(--liq) 55%,color-mix(in srgb,var(--liq) 70%,#000) 100%);opacity:.92}
+.bottle .label{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:70%;padding:12px 6px;background:rgba(246,241,233,.94);text-align:center;font-family:var(--serif);color:var(--ink)}
+.bottle .label .b{font-size:17px;letter-spacing:.18em;font-weight:500}
+.bottle .label .s{display:block;font-family:var(--sans);font-size:7px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.hero .bottle{width:200px;height:350px;z-index:2}
+.hero .bottle .cap{width:82px;height:76px}
+.hero .bottle .neck{top:74px;width:44px;height:20px}
+.hero .bottle .glass{top:92px}
+.hero .bottle .label .b{font-size:24px}
+.hero .bottle.back{position:absolute;width:150px;height:262px;transform:translateX(-120px) rotate(-6deg);opacity:.7;z-index:1;bottom:0}
+.hero .bottle.back2{position:absolute;width:150px;height:262px;transform:translateX(120px) rotate(6deg);opacity:.7;z-index:1;bottom:0}
+.hero .bottle.back .cap,.hero .bottle.back2 .cap{width:62px;height:58px}
+.hero .bottle.back .neck,.hero .bottle.back2 .neck{top:56px;width:34px;height:16px}
+.hero .bottle.back .glass,.hero .bottle.back2 .glass{top:70px}
+.hero .bottle.back .label .b,.hero .bottle.back2 .label .b{font-size:15px}
+
+/* marquee */
+.marquee{background:var(--paper);border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:18px 0}
+.marquee-track{display:inline-flex;gap:56px;animation:scroll 40s linear infinite;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink)}
+.marquee-track span::after{content:"✦";font-style:normal;color:var(--gold);font-size:12px;margin-left:56px;vertical-align:middle}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* collection */
+section{padding:120px 0}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:60px;flex-wrap:wrap}
+.section-head h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,5vw,62px);line-height:1;margin-top:14px}
+.section-head h2 em{color:var(--gold)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{background:none;border:1px solid var(--line);padding:9px 18px;font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;color:var(--ink);transition:.25s}
+.filters button.active,.filters button:hover{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.card{position:relative;cursor:pointer}
+.card .stage{position:relative;aspect-ratio:4/5;background:linear-gradient(180deg,#ece3d4,#e2d6c3);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:background .5s}
+.card .stage::before{content:"";position:absolute;inset:auto 18% 12% 18%;height:16px;border-radius:50%;background:rgba(0,0,0,.18);filter:blur(10px)}
+.card .bottle{transition:transform .6s cubic-bezier(.2,.7,.2,1);transform:scale(.82)}
+.card:hover .bottle{transform:scale(.88) translateY(-8px)}
+.card .badge{position:absolute;top:14px;left:14px;font-size:9px;letter-spacing:.25em;text-transform:uppercase;background:var(--ivory);padding:6px 10px}
+.card .badge.sold{background:var(--ink);color:var(--ivory)}
+.card .quick{position:absolute;left:14px;right:14px;bottom:14px;background:var(--ink);color:var(--ivory);border:0;padding:14px;font-family:var(--sans);font-size:10px;letter-spacing:.28em;text-transform:uppercase;cursor:pointer;opacity:0;transform:translateY(10px);transition:.35s}
+.card:hover .quick{opacity:1;transform:none}
+.card .quick[disabled]{background:#6b625a;cursor:not-allowed}
+.card .meta{padding:20px 2px 0;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.card h3{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.1}
+.card .notes{font-size:12px;color:var(--muted);margin-top:6px;letter-spacing:.04em}
+.card .price{font-size:13px;letter-spacing:.08em;white-space:nowrap}
+.card .price s{color:var(--muted);margin-right:6px}
+
+/* discovery */
+.discovery{background:var(--ink);color:var(--ivory);padding:0}
+.disc-grid{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.disc-visual{background:radial-gradient(circle at 50% 60%,#2e271f,#141210 70%);display:flex;align-items:center;justify-content:center;gap:4px;padding:40px}
+.disc-visual .bottle{width:70px;height:130px}
+.disc-visual .bottle .cap{width:30px;height:28px}
+.disc-visual .bottle .neck{top:27px;width:16px;height:8px}
+.disc-visual .bottle .glass{top:34px}
+.disc-visual .bottle .label{display:none}
+.disc-copy{padding:90px 8%;display:flex;flex-direction:column;justify-content:center}
+.disc-copy h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,4.6vw,58px);line-height:1.02;margin:16px 0 24px}
+.disc-copy p{color:#c9bfb1;max-width:460px;margin-bottom:34px}
+.disc-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 30px;margin-bottom:40px;max-width:460px}
+.disc-list li{font-family:var(--serif);font-size:19px;border-bottom:1px solid var(--line);padding-bottom:8px;display:flex;justify-content:space-between}
+.disc-list li span{font-family:var(--sans);font-size:11px;color:var(--gold);letter-spacing:.2em}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px;align-items:center}
+.about-mark{aspect-ratio:1;border:1px solid var(--line);display:grid;place-items:center;position:relative}
+.about-mark::before{content:"";position:absolute;inset:22px;border:1px solid var(--line)}
+.monogram{font-family:var(--serif);font-weight:300;font-size:clamp(120px,16vw,220px);line-height:1;color:var(--ink)}
+.monogram em{color:var(--gold)}
+.about-mark .cap-text{position:absolute;bottom:44px;font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--muted)}
+.about h2{font-family:var(--serif);font-weight:300;font-size:clamp(38px,4.4vw,56px);line-height:1.05;margin:16px 0 28px}
+.about p{color:#4b443d;margin-bottom:18px;max-width:560px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:40px 0 44px;border-top:1px solid var(--line);padding-top:30px}
+.pillars h4{font-family:var(--serif);font-weight:400;font-size:22px;margin-bottom:6px}
+.pillars p{font-size:13px;color:var(--muted);margin:0}
+
+/* manifesto */
+.manifesto{background:var(--paper);text-align:center;padding:110px 0}
+.manifesto p{font-family:var(--serif);font-weight:300;font-size:clamp(30px,4.2vw,54px);line-height:1.25;max-width:900px;margin:0 auto}
+.manifesto p em{color:var(--gold)}
+
+/* newsletter */
+.news{text-align:center}
+.news h2{font-family:var(--serif);font-weight:300;font-size:clamp(36px,4vw,52px);margin:14px 0 12px}
+.news p{color:var(--muted);margin-bottom:36px}
+.news form{display:flex;max-width:520px;margin:0 auto;border-bottom:1px solid var(--ink)}
+.news input{flex:1;border:0;background:none;padding:16px 4px;font-family:var(--sans);font-size:15px;outline:none;color:var(--ink);min-width:0}
+.news button{background:none;border:0;font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;cursor:pointer;padding:0 6px;color:var(--ink)}
+.news .ok{margin-top:18px;color:var(--gold);font-size:13px;letter-spacing:.1em;min-height:20px}
+
+/* footer */
+footer{background:var(--ink);color:#a89e91;padding:90px 0 36px;font-size:13px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08)}
+footer .logo{text-align:left}
+footer .logo .name{color:var(--ivory)}
+footer h5{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-soft);font-weight:400;margin-bottom:20px}
+footer ul{list-style:none;display:grid;gap:10px}
+footer a:hover{color:var(--ivory)}
+.foot-tag{font-family:var(--serif);font-style:italic;font-size:20px;color:#d6ccbe;margin-top:22px;max-width:280px;line-height:1.35}
+.foot-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:28px;font-size:11px;letter-spacing:.12em;flex-wrap:wrap}
+.foot-bottom select{background:transparent;color:#a89e91;border:1px solid rgba(255,255,255,.15);padding:6px 10px;font-family:var(--sans);font-size:11px}
+
+/* toast */
+.toast{position:fixed;right:24px;bottom:24px;background:var(--ink);color:var(--ivory);padding:16px 22px;font-size:12px;letter-spacing:.14em;border-left:2px solid var(--gold);transform:translateY(120%);opacity:0;transition:.4s;z-index:50}
+.toast.show{transform:none;opacity:1}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* responsive */
+@media (max-width:1024px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .hero-grid{grid-template-columns:1fr;text-align:center;min-height:auto}
+  .hero p.lede{margin-inline:auto}.acronym,.hero-actions{justify-content:center}
+  .hero-visual{height:440px}
+  .about-grid{grid-template-columns:1fr;gap:50px}
+  .disc-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .wrap{padding:0 16px}
+  section{padding:80px 0}
+  .nav{height:68px;grid-template-columns:auto 1fr auto}
+  .nav-links{display:none}.menu-btn{display:block}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--ivory);padding:24px 16px;gap:18px;border-bottom:1px solid var(--line)}
+  .logo .name{font-size:20px}.logo .sub{font-size:7px;letter-spacing:.45em}
+  .nav-tools .hide-sm{display:none}
+  .grid{grid-template-columns:repeat(2,1fr);gap:16px}
+  .card h3{font-size:19px}.card .meta{flex-direction:column;gap:4px}
+  .card .quick{opacity:1;transform:none;padding:11px;font-size:9px}
+  .hero-grid{padding:56px 16px 40px}
+  .hero-visual{height:380px}
+  .hero .bottle.back{transform:translateX(-90px) rotate(-6deg)}
+  .hero .bottle.back2{transform:translateX(90px) rotate(6deg)}
+  .halo{width:300px;height:300px}.halo.two{width:360px;height:360px}
+  .pillars{grid-template-columns:1fr}
+  .disc-copy{padding:60px 16px}
+  .disc-visual{flex-wrap:wrap;gap:14px 10px;padding:50px 16px}
+  .disc-visual .bottle{width:44px;height:90px;margin:0}
+  body{overflow-x:hidden}
+  .disc-visual .bottle .cap{width:20px;height:18px}.disc-visual .bottle .neck{top:17px;width:10px;height:6px}.disc-visual .bottle .glass{top:22px}
+  .foot-grid{grid-template-columns:1fr}
+}
+.concept{background:var(--gold);color:var(--ink);text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:8px 16px;font-weight:500}
+</style>
+</head>
+<body>
+
+<div class="concept">Redesign concept · Preview only — not the live store</div>
+<div class="announce">New inventory has arrived — complimentary shipping on orders over $100</div>
+
+<header>
+  <div class="wrap nav">
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">Menu</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#collection">Collection</a>
+      <a href="#discovery">Discovery</a>
+      <a href="#about">Our Story</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#" class="logo"><span class="name">Daniel Cardell</span><span class="sub">Fragrances</span></a>
+    <div class="nav-tools">
+      <a href="#" class="hide-sm">Search</a>
+      <a href="#" class="hide-sm">Account</a>
+      <a href="#">Bag<span class="cart-count" id="cartCount">0</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" style="padding:0">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">The SAINN. Collection</div>
+      <h1>SAINN<em>.</em></h1>
+      <div class="acronym"><span><b>S</b>melling</span><span><b>A</b>mazing</span><span><b>I</b>s</span><span><b>N</b>on</span><span><b>N</b>egotiable</span></div>
+      <p class="lede">Unisex niche perfumes, hand-blended in small batches. Luxurious by nature, accessible by design.</p>
+      <div class="hero-actions">
+        <a href="#collection" class="btn btn-gold">Shop the Collection</a>
+        <a href="#discovery" class="btn btn-line">Discovery Set</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="halo"></div><div class="halo two"></div>
+      <div class="bottle back" style="--liq:#3c5f8f"><div class="cap"></div><div class="neck"></div><div class="glass"><div class="liquid"></div><div class="label"><span class="b">SAINN.</span></div></div></div>
+      <div class="bottle back2" style="--liq:#8c3b3b"><div class="cap"></div><div class="neck"></div><div class="glass"><div class="liquid"></div><div class="label"><span class="b">SAINN.</span></div></div></div>
+      <div class="bottle" style="--liq:#c79a52"><div class="cap"></div><div class="neck"></div><div class="glass"><div class="liquid"></div><div class="label"><span class="b">SAINN.</span><span class="s">Eau de Parfum</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Wear it boldly</span><span>Wear it beautifully</span><span>Wear it with every essence of who you are</span><span>Hand-blended in small batches</span>
+    <span>Wear it boldly</span><span>Wear it beautifully</span><span>Wear it with every essence of who you are</span><span>Hand-blended in small batches</span>
+  </div>
+</div>
+
+<section id="collection">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">Featured</div><h2>The <em>Collection</em></h2></div>
+      <div class="filters" id="filters">
+        <button class="active" data-f="all">All</button>
+        <button data-f="fresh">Fresh</button>
+        <button data-f="warm">Warm</button>
+        <button data-f="sets">Sets</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="discovery" id="discovery">
+  <div class="disc-grid">
+    <div class="disc-visual" id="discVisual"></div>
+    <div class="disc-copy reveal">
+      <div class="eyebrow">Not sure where to begin?</div>
+      <h2>The Discovery Set</h2>
+      <p>Explore the full SAINN. wardrobe in travel-sized vials. Live with each scent on your own skin, then choose your signature.</p>
+      <ul class="disc-list" id="discList"></ul>
+      <div><a href="#" class="btn btn-gold" id="notifyBtn">Notify me when restocked — $60</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-mark reveal">
+      <div class="monogram">D<em>&amp;</em>C</div>
+      <div class="cap-text">Est. by a father, for his sons</div>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">Our Story</div>
+      <h2>A name carried by two sons.</h2>
+      <p>Daniel Cardell was started by a husband, father, and lifelong maker who believes the way you smell is one of the most personal statements you can make.</p>
+      <p>The house takes its name from the middle names of his two boys — a reminder that every bottle is made with the same care you'd give to family.</p>
+      <div class="pillars">
+        <div><h4>Small batch</h4><p>Each blend is mixed by hand in limited runs.</p></div>
+        <div><h4>Unisex</h4><p>Scents made for the person, not the label.</p></div>
+        <div><h4>Accessible</h4><p>Niche quality without the niche markup.</p></div>
+      </div>
+      <a href="#contact" class="btn btn-line">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<div class="manifesto">
+  <div class="wrap reveal"><p>Wear it <em>boldly</em>. Wear it <em>beautifully</em>. Wear it with every essence of who you are.</p></div>
+</div>
+
+<section class="news" id="contact">
+  <div class="wrap reveal">
+    <div class="eyebrow">The Inner Circle</div>
+    <h2>First to know. First to wear.</h2>
+    <p>New releases, restocks, and private offers — delivered occasionally.</p>
+    <form id="newsForm"><input type="email" required placeholder="Your email address" aria-label="Email"><button type="submit">Subscribe →</button></form>
+    <div class="ok" id="newsOk"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo"><span class="name">Daniel Cardell</span><span class="sub">Fragrances</span></div>
+        <p class="foot-tag">Smelling amazing is non negotiable.</p>
+      </div>
+      <div><h5>Shop</h5><ul><li><a href="#collection">All fragrances</a></li><li><a href="#discovery">Discovery Set</a></li><li><a href="#collection">SAINN. Bundle</a></li></ul></div>
+      <div><h5>House</h5><ul><li><a href="#about">Our story</a></li><li><a href="#contact">Contact</a></li><li><a href="#">Privacy policy</a></li></ul></div>
+      <div><h5>Follow</h5><ul><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Pinterest</a></li><li><a href="#">X</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Daniel Cardell Fragrances</span>
+      <select aria-label="Country/region"><option>United States (USD $)</option><option>Canada (CAD $)</option><option>United Kingdom (GBP £)</option></select>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const products = [
+  {n:"Victorious", notes:"Bold · Woody · Amber", p:70, c:"#b8862f", f:"warm"},
+  {n:"Ooohh", notes:"Sweet · Gourmand · Vanilla", p:70, c:"#c9787a", f:"warm"},
+  {n:"Blue Diamonds", notes:"Crisp · Aquatic · Citrus", p:70, c:"#3c6ea8", f:"fresh"},
+  {n:"Rosewood", notes:"Floral · Rose · Woods", p:70, c:"#8c3b3b", f:"warm"},
+  {n:"CJ 1013", notes:"Signature · Clean · Musk", p:70, c:"#6d6a63", f:"fresh"},
+  {n:"Cashmere Sweater", notes:"Soft · Powdery · Musk", p:70, c:"#cdb89a", f:"warm"},
+  {n:"Oceans & Stars", notes:"Marine · Airy · Mineral", p:70, c:"#2f5a6e", f:"fresh"},
+  {n:"Nights in Dubai", notes:"Oud · Spice · Smoke", p:70, c:"#4a2a1e", f:"warm"},
+  {n:"Temptation", notes:"Seductive · Fruity · Dark", p:70, c:"#5b2140", f:"warm"},
+  {n:"SAINN. Bundle", notes:"The complete collection", p:165, c:"#c79a52", f:"sets", sold:true},
+  {n:"Discovery Set", notes:"Sample every scent", p:60, c:"#a08560", f:"sets", sold:true},
+];
+const bottle = (c,label=true) => `<div class="bottle" style="--liq:${c}"><div class="cap"></div><div class="neck"></div><div class="glass"><div class="liquid"></div>${label?'<div class="label"><span class="b">SAINN.</span><span class="s">Eau de Parfum</span></div>':''}</div></div>`;
+const grid = document.getElementById('grid');
+function render(f){
+  grid.innerHTML = products.filter(p=>f==='all'||p.f===f).map((p,i)=>`
+    <article class="card reveal in" style="transition-delay:${i*40}ms">
+      <div class="stage" style="background:linear-gradient(180deg,#efe6d8, color-mix(in srgb, ${p.c} 18%, #e6dac8))">
+        ${p.sold?'<span class="badge sold">Sold out</span>':(p.f!=='sets'?'<span class="badge">Eau de Parfum</span>':'')}
+        ${bottle(p.c)}
+        <button class="quick" ${p.sold?'disabled':''} data-n="${p.n}">${p.sold?'Sold out':'Add to bag'}</button>
+      </div>
+      <div class="meta">
+        <div><h3>${p.n}</h3><div class="notes">${p.notes}</div></div>
+        <div class="price">${p.sold?'':'From '}$${p.p.toFixed(2)}</div>
+      </div>
+    </article>`).join('');
+}
+render('all');
+document.getElementById('filters').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON')return;
+  document.querySelectorAll('#filters button').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active'); render(e.target.dataset.f);
+});
+let count=0; const toast=document.getElementById('toast');
+function showToast(t){toast.textContent=t;toast.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>toast.classList.remove('show'),2400);}
+grid.addEventListener('click',e=>{
+  const b=e.target.closest('.quick'); if(!b||b.disabled)return;
+  count++; document.getElementById('cartCount').textContent=count;
+  showToast(`${b.dataset.n} added to your bag`);
+});
+// discovery
+const singles = products.filter(p=>p.f!=='sets');
+document.getElementById('discVisual').innerHTML = singles.map(p=>bottle(p.c,false)).join('');
+document.getElementById('discList').innerHTML = singles.map((p,i)=>`<li>${p.n}<span>0${i+1}</span></li>`).join('');
+document.getElementById('notifyBtn').addEventListener('click',e=>{e.preventDefault();showToast('We’ll let you know when it’s back');});
+// newsletter
+document.getElementById('newsForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('newsOk').textContent='Welcome to the inner circle.';e.target.reset();});
+// menu
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
